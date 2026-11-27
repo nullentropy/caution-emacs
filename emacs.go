@@ -27,7 +27,7 @@ func newEmacs() *emacs {
 
 func (e *emacs) argv() []string {
 	return []string{"emacs", "-nw", "--eval",
-		fmt.Sprintf(`(progn (require 'server) (setq server-name %q) (server-start) (xterm-mouse-mode 1))`, e.server)}
+		fmt.Sprintf(`(progn (require 'server) (setq server-name %q) (server-start) (xterm-mouse-mode 1) (require 'mwheel))`, e.server)}
 }
 
 func (e *emacs) eval(form string) (string, error) {
