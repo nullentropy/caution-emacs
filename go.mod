@@ -3,8 +3,8 @@ module caution-emacs
 go 1.26.0
 
 require (
-	github.com/nullentropy/caution v0.33.1
-	github.com/nullentropy/caution-term v0.1.0
+	github.com/nullentropy/caution v0.34.1
+	github.com/nullentropy/caution-term v0.2.0
 	golang.org/x/image v0.48.0
 )
 
