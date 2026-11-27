@@ -4,7 +4,7 @@ go 1.26.0
 
 require (
 	github.com/nullentropy/caution v0.34.1
-	github.com/nullentropy/caution-term v0.2.0
+	github.com/nullentropy/caution-term v0.2.1
 	golang.org/x/image v0.48.0
 )
 
@@ -22,7 +22,6 @@ require (
 	github.com/creack/pty v1.1.24 // indirect
 	github.com/ebitengine/oto/v3 v3.4.1 // indirect
 	github.com/ebitengine/purego v0.9.0 // indirect
-	github.com/go-gl/gl v0.0.0-20260331235117-4566fea9a276 // indirect
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20260802143932-8fa725040a18 // indirect
 	github.com/go-text/typesetting v0.3.4 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
