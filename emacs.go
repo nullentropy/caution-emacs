@@ -27,8 +27,14 @@ func newEmacs() *emacs {
 
 func (e *emacs) argv() []string {
 	return []string{"emacs", "-nw", "--eval",
-		fmt.Sprintf(`(progn (require 'server) (setq server-name %q) (server-start) (xterm-mouse-mode 1) (require 'mwheel))`, e.server)}
+		fmt.Sprintf(`(progn (require 'server) (setq server-name %q) (server-start) (xterm-mouse-mode 1) %s)`, e.server, wheelForm)}
 }
+
+const wheelForm = `(progn (require 'mwheel)
+  (global-set-key [wheel-up] (lambda () (interactive) (push 'up unread-command-events)))
+  (global-set-key [wheel-down] (lambda () (interactive) (push 'down unread-command-events)))
+  (global-set-key [mouse-4] (lambda () (interactive) (push 'up unread-command-events)))
+  (global-set-key [mouse-5] (lambda () (interactive) (push 'down unread-command-events))))`
 
 func (e *emacs) eval(form string) (string, error) {
 	if e.client == "" {
