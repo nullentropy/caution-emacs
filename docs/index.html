@@ -29,6 +29,7 @@
   <h2>Install</h2>
   <pre><code>curl -fsSL https://raw.githubusercontent.com/nullentropy/caution-emacs/main/install.sh | sh</code></pre>
   <p>This installs <code>Caution Emacs.app</code> in <code>/Applications</code>. Releases are also on the <a href="https://github.com/nullentropy/caution-emacs/releases/latest">releases page</a>.</p>
+  <p>The app checks for a new release when it opens and every hour after. It downloads the update and installs it the next time the app opens. <b>Restart to Update</b> in the app menu does it now: Emacs asks to save your buffers, then the app reopens on the new version. <b>Check for Updates…</b> checks right away.</p>
   <h2>Requirements</h2>
   <p>macOS 13 or newer, and Emacs with <code>emacsclient</code> on your <code>PATH</code>. Homebrew's <code>emacs</code> works; it does not need GUI support. Doom's icons need Fira Code Nerd Font Mono in <code>~/Library/Fonts</code>.</p>
 </section>

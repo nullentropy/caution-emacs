@@ -45,7 +45,7 @@ for arch in arm64 amd64; do
 		MACOSX_DEPLOYMENT_TARGET=$min_macos \
 		CGO_CFLAGS="-O2 -g -mmacosx-version-min=$min_macos" \
 		CGO_LDFLAGS="-mmacosx-version-min=$min_macos" \
-		go build -trimpath -o "$work/caution-emacs-$arch" .
+		go build -trimpath -ldflags "-X main.version=$version" -o "$work/caution-emacs-$arch" .
 done
 lipo -create -output "$work/caution-emacs" "$work/caution-emacs-arm64" "$work/caution-emacs-amd64"
 

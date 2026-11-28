@@ -24,7 +24,7 @@ var (
 func main() {
 	flag.Parse()
 	dir := term.PrepareBundle()
-	cfg := term.LoadSettings("Caution Emacs")
+	cfg := term.LoadSettings(appName)
 	if *look != "" {
 		cfg.Look = *look
 	}
@@ -40,15 +40,29 @@ func main() {
 	}
 	fonts := term.LoadFonts(*fontGlob)
 
+	var upd *updates
+	if *addr == "" && *shot == "" {
+		if cd, err := os.UserConfigDir(); err == nil {
+			upd = startUpdates(filepath.Join(cd, appName))
+		}
+	}
+
 	mount := func(s *caution.Session) *caution.Node {
 		var onExit func()
 		if *addr == "" {
-			onExit = func() { os.Exit(0) }
+			onExit = func() {
+				if upd.relaunchRequested() {
+					if err := upd.installAndRelaunch(); err != nil {
+						log.Printf("update: %v", err)
+					}
+				}
+				os.Exit(0)
+			}
 		}
-		a := newApp(s, em, cfg, save,
+		a := newApp(s, em, upd, cfg, save,
 			term.WindowOptions{Fonts: fonts, Fg: *fg, Bg: *bg, OnEmpty: onExit},
 			term.Options{Argv: argv, Dir: dir})
-		return a.w.Node()
+		return a.root
 	}
 
 	caution.ServeClient()
@@ -56,7 +70,7 @@ func main() {
 		log.Fatal(caution.Serve(*addr, mount))
 	}
 	err := native.Run(mount, native.Options{
-		Title: "Caution Emacs", W: cfg.W, H: cfg.H, Maximized: cfg.Maximized,
+		Title: appName, W: cfg.W, H: cfg.H, Maximized: cfg.Maximized,
 		CustomTitlebar: true, TitlebarStyle: "compact",
 		OnWindow: func(w, h int, maximized bool) {
 			cfg.W, cfg.H, cfg.Maximized = w, h, maximized

@@ -44,6 +44,8 @@ github.com/muesli/cancelreader v0.2.2 h1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELU
 github.com/muesli/cancelreader v0.2.2/go.mod h1:3XuTXfFS2VjM+HTLZY9Ak0l6eUKfijIfMUZ4EgX0QYo=
 github.com/nullentropy/caution v0.34.1 h1:7Jv/teVGn2RaL2wPaVCpMHRw6yJpxGpvJYooZh6lxhI=
 github.com/nullentropy/caution v0.34.1/go.mod h1:xN8elbmMZHGlJ23vrXcL5fyUMMBGLsGMVPUjS39ozGw=
+github.com/nullentropy/caution v0.34.3 h1:RixPBZvv4nJHSmKJ9vcg3kBS+G+25h1LfFZYrL/x7eI=
+github.com/nullentropy/caution v0.34.3/go.mod h1:xN8elbmMZHGlJ23vrXcL5fyUMMBGLsGMVPUjS39ozGw=
 github.com/nullentropy/caution-term v0.2.1 h1:YzmPKEWqOpxEOERtfM1ASRtis0dgDlrQknVrIHLcQtk=
 github.com/nullentropy/caution-term v0.2.1/go.mod h1:zf0p5+T+DejJTfrVMtb1tyamch2jJD0C4dpfGxMZdow=
 github.com/nullentropy/caution-term v0.2.2 h1:IgGIzkhNbm/qTWkoNDekGKUsBdZl1Icv+q1qJgnZwYA=
